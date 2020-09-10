@@ -1,0 +1,35 @@
+
+ 
+  {% if php_errormsg == "" %}
+  
+ <div class="carousel-main w-100">
+   <div id="carouselExampleInterval" class="carousel slide w-100" data-ride="carousel">
+  <div class="carousel-inner col-12">
+  {% for films in allfilms %}
+    <div {% if loop.index0 == 0 %} class="carousel-item active "{% else %} class="carousel-item " {% endif %} data-interval="5000">
+    <div class=".justify-content-lg-around col-12">
+          <img src="{{films.get_affiche}}" class="img-fluid w-25 "   alt="...">
+          
+          <div class="carousel-caption d-flex d-md-block justify-content-center align-content-center col-12">
+        <h5 class="text-dark">{{films.get_titre}}({{films.get_annee}}):</h5><br>
+        {% for role in films.get_roles %}
+        <p  class="text-dark">{{role.get_personnage}} interprété par {{role.get_acteur.get_prenom}} {{role.get_acteur.get_nom}} </p>   
+        {% endfor %}
+        </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+  </div>
+  <div class="btn-group-sm col-12 d-flex justify-content-center" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-danger" href="#carouselExampleInterval" data-slide="prev" >Précédent</button>
+        <button type="button" role="button" class="btn btn-outline-dark" data-slide="next" href="#carouselExampleInterval" >Suivant</button>
+  </div>
+</div>   
+{% else %}
+  {{php_errormsg}}  <label class="error_icon"><i class="fas fa-long-arrow-alt-right"></i> <a href="films">Home</a></label>
+{% endif %}
+<hr>
+<br>
+
+

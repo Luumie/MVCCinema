@@ -1,0 +1,29 @@
+<div class="container">
+        <form action="compte_connexion" method="post" id="form_co">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <input type="email" name="mail" required class="form-control" id="mail" aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Mot de passe</label>
+        <input type="password" name="psw" required class="form-control" id="psw">
+        <a href="#" class="petit_lien"><small id="passHelp" class="form-text text-muted">Mot de passe oublié ?</small></a>
+    </div>
+    {# <div class="form-group form-check">
+        <input type="checkbox" name="remember"  class="form-check-input" id="remember_me">
+        <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
+    </div> #}
+    {% if message %}
+      <span class="message_alert">{{message}}</span> 
+      {% endif %}
+    <div class="button">
+    <button id="button" type="submit">
+    <span></span>
+      <span></span>
+      <span></span>
+      <span></span>CONNEXION</button>
+      
+      </div>
+        <a href="creer_compte" class="petit_lien"><small id="compteHelp" class="form-text text-muted">Vous ne possédez pas de compte ?</small></a>
+    </form>
+</div>
